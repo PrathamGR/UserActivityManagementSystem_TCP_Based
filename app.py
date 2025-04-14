@@ -1,9 +1,9 @@
 import os
 from datetime import datetime
-from flask import Flask, render_template, request, redirect, url_for, session, flash
-from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
-from Crypto.Cipher import AES
+from flask import Flask, render_template, request, redirect, url_for, session, flash# type: ignore
+from flask_sqlalchemy import SQLAlchemy # type: ignore
+from werkzeug.security import generate_password_hash, check_password_hash# type: ignore
+from Crypto.Cipher import AES # type: ignore
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key_here"  # Change this in production
