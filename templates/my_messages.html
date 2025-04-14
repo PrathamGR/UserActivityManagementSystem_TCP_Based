@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>My Received Messages</h2>
+{% if messages %}
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Sender</th>
+        <th>Message</th>
+        <th>Timestamp</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for msg in messages %}
+      <tr>
+        <td>{{ msg.sender }}</td>
+        <td>{{ msg.message }}</td>
+        <td>{{ msg.timestamp }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <div class="alert alert-info">
+    No messages received.
+  </div>
+{% endif %}
+{% endblock %}

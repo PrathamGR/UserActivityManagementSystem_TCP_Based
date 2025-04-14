@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Send Encrypted Message</h2>
+{% if recipients %}
+  <form method="POST">
+    <div class="form-group">
+      <label>Select Recipient:</label>
+      <select class="form-control" name="receiver_id" required>
+        <option value="" disabled selected>Select a recipient</option>
+        {% for user in recipients %}
+          <option value="{{ user.id }}">{{ user.username }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Message:</label>
+      <textarea name="message" class="form-control" rows="4" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Send Message</button>
+  </form>
+{% else %}
+  <div class="alert alert-warning">
+    No recipients available to send a message.
+  </div>
+{% endif %}
+{% endblock %}
