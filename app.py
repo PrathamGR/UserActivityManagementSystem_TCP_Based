@@ -203,14 +203,15 @@ def delete_user(user_id):
     user = User.query.get(user_id)
     if not user:
         flash("User not found", "danger")
-        return redirect(url_for('admin'))
+        return redirect(url_for('admin_view'))  # Correct endpoint name
     if user.role == 'admin':
         flash("Cannot delete the admin user!", "danger")
-        return redirect(url_for('admin'))
+        return redirect(url_for('admin_view'))  # Correct endpoint name
     db.session.delete(user)
     db.session.commit()
     flash("User deleted successfully!", "success")
-    return redirect(url_for('admin'))
+    return redirect(url_for('admin_view'))  # Correct endpoint name
+
 
 @app.route('/logout')
 def logout():
